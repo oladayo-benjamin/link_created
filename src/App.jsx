@@ -1,5 +1,5 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import Payment from "./components/Payment";
+import Payment from "./components/payment/transactionConfirmationUI/Payment";
 
 
 
