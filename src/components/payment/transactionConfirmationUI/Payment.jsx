@@ -33,16 +33,16 @@ import {
 } from "@chakra-ui/icons";
 
 // Import your assets here
-import logo from "../assets/logo.png"; // ✅ Define the logo path
-import toogle from "../assets/toogle.png"; // ✅ Define the toggle path
-import overview from "../assets/overview.png"; // ✅ Define the overview icon path
-import Analytics from "../assets/analytics.png"; // ✅ Define the analytics icon path
-import Transactions from "../assets/transactions.png"; // ✅ Define the transactions icon path
-import Payments from "../assets/payment.png"; // ✅ Define the payments icon path
-import Subscription from "../assets/subscription.png"; // ✅ Define the subscription icon path
-import Support from "../assets/support.png"; // ✅ Define the support icon path
-import Settings from "../assets/settings.png"; // ✅ Define the settings icon path
-import Logout from "../assets/logout.png"; // ✅ Define the logout icon path
+import logo from "./paymentAssets/logo.png"; // ✅ Define the logo path
+import toogle from "./paymentAssets/toogle.png"; // ✅ Define the toggle path
+import overview from "./paymentAssets/overview.png"; // ✅ Define the overview icon path
+import Analytics from "./paymentAssets/analytics.png"; // ✅ Define the analytics icon path
+import Transactions from "./paymentAssets/transactions.png"; // ✅ Define the transactions icon path
+import Payments from "./paymentAssets/payment.png"; // ✅ Define the payments icon path
+import Subscription from "./paymentAssets/subscription.png"; // ✅ Define the subscription icon path
+import Support from "./paymentAssets/support.png"; // ✅ Define the support icon path
+import Settings from "./paymentAssets/settings.png"; // ✅ Define the settings icon path
+import Logout from "./paymentAssets/logout.png"; // ✅ Define the logout icon path
 
 const Payment = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -195,6 +195,10 @@ const Payment = () => {
     currentPage * itemsPerPage
   );
 
+  // Calculate current range
+  const startItem = (currentPage - 1) * itemsPerPage + 1;
+  const endItem = Math.min(currentPage * itemsPerPage, paymentData.length);
+
   return (
     <Box w="100vw" h="100vh" bg="#F8F8F8" overflow="hidden">
       <Flex h="full">
@@ -312,6 +316,9 @@ const Payment = () => {
             <VStack align="start" spacing={1}>
               <Text fontSize="18px" fontWeight="500" color="#313431">
                 Payment
+              </Text>
+              <Text fontSize="14px" color="#637381">
+                {paymentData.length} payment links
               </Text>
             </VStack>
 
@@ -449,47 +456,54 @@ const Payment = () => {
           </Box>
 
           {/* Pagination Carousel */}
-          <Flex align="right" mt={4} gap={1}>
-            <IconButton
-              size="sm"
-              icon={<ChevronLeftIcon />}
-              variant="outline"
-              onClick={() => setCurrentPage(1)} // Navigate to first page
-              isDisabled={currentPage === 1}
-              color="#424141"
-            />
-            {[...Array(totalPages)].map((_, index) => (
-              <Button
-                key={index}
+          <Flex align="right" justify="space-between" mt={4} gap={1}>
+            <Box>
+              <Text color="#424141">
+                Showing {startItem} to {endItem} of {paymentData.length} entries
+              </Text>
+            </Box>
+            <Flex>
+              <IconButton
                 size="sm"
-                variant={currentPage === index + 1 ? "solid" : "outline"}
-                colorScheme={currentPage === index + 1 ? "green" : "gray"}
-                onClick={() => setCurrentPage(index + 1)}
+                icon={<ChevronLeftIcon />}
+                variant="outline"
+                onClick={() => setCurrentPage(1)} // Navigate to first page
+                isDisabled={currentPage === 1}
+                color="#424141"
+              />
+              {[...Array(totalPages)].map((_, index) => (
+                <Button
+                  key={index}
+                  size="sm"
+                  variant={currentPage === index + 1 ? "solid" : "outline"}
+                  colorScheme={currentPage === index + 1 ? "green" : "gray"}
+                  onClick={() => setCurrentPage(index + 1)}
+                  color="#424141"
+                >
+                  {index + 1}
+                </Button>
+              ))}
+              <Text color="#424141">...</Text>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => setCurrentPage(totalPages)} // Navigate to last page
+                isDisabled={currentPage === totalPages}
                 color="#424141"
               >
-                {index + 1}
+                {totalPages}
               </Button>
-            ))}
-            <Text color="#424141">...</Text>
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => setCurrentPage(totalPages)} // Navigate to last page
-              isDisabled={currentPage === totalPages}
-              color="#424141"
-            >
-              {totalPages}
-            </Button>
-            <IconButton
-              size="sm"
-              icon={<ChevronRightIcon />}
-              variant="outline"
-              onClick={() =>
-                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-              }
-              isDisabled={currentPage === totalPages}
-              color="#424141"
-            />
+              <IconButton
+                size="sm"
+                icon={<ChevronRightIcon />}
+                variant="outline"
+                onClick={() =>
+                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                }
+                isDisabled={currentPage === totalPages}
+                color="#424141"
+              />
+            </Flex>
           </Flex>
         </Box>
       </Flex>
