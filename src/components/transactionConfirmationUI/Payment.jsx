@@ -473,23 +473,38 @@ const Payment = () => {
           {/* Pagination Carousel */}
           <Flex align="right" justify="space-between" mt={4} gap={1}>
             <Box>
-              <Text color="#424141">
+              <Text w="253px"
+                color="#B5B7C0"
+                fontSize="14px"
+                fontFamily="Inter"
+                fontWeight="500"
+                wordBreak="break-word">
                 Showing {startItem} to {endItem} of {paymentData.length} entries
               </Text>
             </Box>
             <Flex>
               <IconButton
                 size="sm"
+                bg="#F5F5F5"
+                border="1px solid #EEEEEE"
+                borderRadius="4px"
                 icon={<ChevronLeftIcon />}
                 variant="outline"
                 onClick={() => setCurrentPage(1)} // Navigate to first page
                 isDisabled={currentPage === 1}
-                color="#424141"
+                color="#292D32"
               />
+              <Flex gap={2}>
               {[...Array(totalPages)].map((_, index) => (
                 <Button
                   key={index}
                   size="sm"
+                  w="26px"
+                  h="28px"
+                  border="1px solid"
+                  borderRadius="4px"
+                  fontSize="12px"
+                  fontWeight="500"
                   variant={currentPage === index + 1 ? "solid" : "outline"}
                   colorScheme={currentPage === index + 1 ? "green" : "gray"}
                   onClick={() => setCurrentPage(index + 1)}
@@ -498,9 +513,15 @@ const Payment = () => {
                   {index + 1}
                 </Button>
               ))}
-              <Text color="#424141">...</Text>
+              </Flex>
+              <Text fontSize="12px" fontWeight="500" color="black" mx={2}>
+                ...
+              </Text>
               <Button
                 size="sm"
+                bg="#F5F5F5"
+                border="1px solid #EEEEEE"
+                borderRadius="4px"
                 variant="outline"
                 onClick={() => setCurrentPage(totalPages)} // Navigate to last page
                 isDisabled={currentPage === totalPages}
@@ -516,7 +537,7 @@ const Payment = () => {
                   setCurrentPage((prev) => Math.min(prev + 1, totalPages))
                 }
                 isDisabled={currentPage === totalPages}
-                color="#424141"
+                color="#292D32"
               />
             </Flex>
           </Flex>
