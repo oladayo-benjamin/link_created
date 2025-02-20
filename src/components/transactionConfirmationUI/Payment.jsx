@@ -30,9 +30,9 @@ import {
 } from "@chakra-ui/icons";
 
 // Import your assets here
-import logo from "./paymentAssets/logo.png"; // ✅ Define the logo path
-import toogle from "./paymentAssets/toogle.png"; // ✅ Define the toggle path
-import overview from "./paymentAssets/overview.png"; // ✅ Define the overview icon path
+import Logo from "./paymentAssets/logo.png"; // ✅ Define the logo path
+import Toogle from "./paymentAssets/toogle.png"; // ✅ Define the toggle path
+import Overview from "./paymentAssets/overview.png"; // ✅ Define the overview icon path
 import Analytics from "./paymentAssets/analytics.png"; // ✅ Define the analytics icon path
 import Transactions from "./paymentAssets/transactions.png"; // ✅ Define the transactions icon path
 import Payments from "./paymentAssets/payment.png"; // ✅ Define the payments icon path
@@ -211,12 +211,12 @@ const Payment = () => {
         >
           <Flex w="full" align="center" justify="space-between" mb={2}>
             <Flex align="center" gap={2}>
-              <Image src={logo} alt="Logo" w="24px" h="24px" />
+              <Image src={Logo} alt="Logo" w="24px" h="24px" />
               <Text fontSize="16px" fontWeight="500" color="#424141">
                 PEDMONIE
               </Text>
             </Flex>
-            <Image src={toogle} alt="Toggle" w="24px" h="24px" />
+            <Image src={Toogle} alt="Toggle" w="24px" h="24px" />
           </Flex>
           <Divider />
 
@@ -226,7 +226,7 @@ const Payment = () => {
           </Text>
 
           {[
-            { icon: overview, text: "Overview" },
+            { icon: Overview, text: "Overview" },
             { icon: Analytics, text: "Analytics" },
             { icon: Transactions, text: "Transactions" },
             { icon: Payments, text: "Payment", isActive: true },
@@ -321,7 +321,6 @@ const Payment = () => {
               >
                 Payment
               </Text>
-
             </VStack>
 
             {/* Search and Action Buttons */}
@@ -364,7 +363,13 @@ const Payment = () => {
                 align="center"
                 gap={2}
               >
-                <Text fontSize="12px" fontWeight="400" color="#A7A7A7" whiteSpace="nowrap" minW="max-content">
+                <Text
+                  fontSize="12px"
+                  fontWeight="400"
+                  color="#A7A7A7"
+                  whiteSpace="nowrap"
+                  minW="max-content"
+                >
                   Sort by:
                 </Text>
                 <Select
@@ -473,12 +478,14 @@ const Payment = () => {
           {/* Pagination Carousel */}
           <Flex align="right" justify="space-between" mt={4} gap={1}>
             <Box>
-              <Text w="253px"
+              <Text
+                w="253px"
                 color="#B5B7C0"
                 fontSize="14px"
                 fontFamily="Inter"
                 fontWeight="500"
-                wordBreak="break-word">
+                wordBreak="break-word"
+              >
                 Showing {startItem} to {endItem} of {paymentData.length} entries
               </Text>
             </Box>
@@ -495,24 +502,24 @@ const Payment = () => {
                 color="#292D32"
               />
               <Flex gap={2}>
-              {[...Array(totalPages)].map((_, index) => (
-                <Button
-                  key={index}
-                  size="sm"
-                  w="26px"
-                  h="28px"
-                  border="1px solid"
-                  borderRadius="4px"
-                  fontSize="12px"
-                  fontWeight="500"
-                  variant={currentPage === index + 1 ? "solid" : "outline"}
-                  colorScheme={currentPage === index + 1 ? "green" : "gray"}
-                  onClick={() => setCurrentPage(index + 1)}
-                  color="#424141"
-                >
-                  {index + 1}
-                </Button>
-              ))}
+                {[...Array(totalPages)].map((_, index) => (
+                  <Button
+                    key={index}
+                    size="sm"
+                    w="26px"
+                    h="28px"
+                    border="1px solid"
+                    borderRadius="4px"
+                    fontSize="12px"
+                    fontWeight="500"
+                    variant={currentPage === index + 1 ? "solid" : "outline"}
+                    colorScheme={currentPage === index + 1 ? "green" : "gray"}
+                    onClick={() => setCurrentPage(index + 1)}
+                    color="#424141"
+                  >
+                    {index + 1}
+                  </Button>
+                ))}
               </Flex>
               <Text fontSize="12px" fontWeight="500" color="black" mx={2}>
                 ...
