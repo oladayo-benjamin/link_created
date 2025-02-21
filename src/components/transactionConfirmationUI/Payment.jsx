@@ -200,6 +200,8 @@ const Payment = () => {
     <Box w="100vw" h="100vh" bg="#F8F8F8" overflow="hidden">
       <Flex h="full">
         {/* Sidebar */}
+
+        {/*         
         <VStack
           w="233px"
           h="90vh"
@@ -220,7 +222,7 @@ const Payment = () => {
           </Flex>
           <Divider />
 
-          {/* Menu Items */}
+         
           <Text fontSize="xs" color="#637381" fontWeight="500" pt={2}>
             GENERAL
           </Text>
@@ -305,7 +307,9 @@ const Payment = () => {
               Logout
             </Text>
           </Button>
-        </VStack>
+      </VStack> 
+
+*/}
 
         {/* Main Content */}
         <Box flex={1} p={4} overflow="auto">
