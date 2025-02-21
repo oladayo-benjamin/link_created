@@ -29,17 +29,6 @@ import {
   CopyIcon,
 } from "@chakra-ui/icons";
 
-// Import your assets here
-import logo from "./paymentAssets/logo.png"; // ✅ Define the logo path
-import toogle from "./paymentAssets/toogle.png"; // ✅ Define the toggle path
-import overview from "./paymentAssets/overview.png"; // ✅ Define the overview icon path
-import Analytics from "./paymentAssets/analytics.png"; // ✅ Define the analytics icon path
-import Transactions from "./paymentAssets/transactions.png"; // ✅ Define the transactions icon path
-import Payments from "./paymentAssets/payment.png"; // ✅ Define the payments icon path
-import Subscription from "./paymentAssets/subscription.png"; // ✅ Define the subscription icon path
-import Support from "./paymentAssets/support.png"; // ✅ Define the support icon path
-import Settings from "./paymentAssets/settings.png"; // ✅ Define the settings icon path
-import Logout from "./paymentAssets/logout.png"; // ✅ Define the logout icon path
 
 const Payment = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -199,113 +188,7 @@ const Payment = () => {
   return (
     <Box w="100vw" h="100vh" bg="#F8F8F8" overflow="hidden">
       <Flex h="full">
-        {/* Sidebar */}
-        <VStack
-          w="233px"
-          h="90vh"
-          bg="white"
-          p={3}
-          spacing={2}
-          align="start"
-          borderRight="1px solid #EEEEEE"
-        >
-          <Flex w="full" align="center" justify="space-between" mb={2}>
-            <Flex align="center" gap={2}>
-              <Image src={logo} alt="Logo" w="24px" h="24px" />
-              <Text fontSize="16px" fontWeight="500" color="#424141">
-                PEDMONIE
-              </Text>
-            </Flex>
-            <Image src={toogle} alt="Toggle" w="24px" h="24px" />
-          </Flex>
-          <Divider />
-
-          {/* Menu Items */}
-          <Text fontSize="xs" color="#637381" fontWeight="500" pt={2}>
-            GENERAL
-          </Text>
-
-          {[
-            { icon: overview, text: "Overview" },
-            { icon: Analytics, text: "Analytics" },
-            { icon: Transactions, text: "Transactions" },
-            { icon: Payments, text: "Payment", isActive: true },
-            { icon: Subscription, text: "Subscription" },
-            { icon: Support, text: "Support" },
-          ].map((item) => (
-            <Button
-              key={item.text}
-              variant="ghost"
-              w="full"
-              h="36px"
-              justifyContent="flex-start"
-              leftIcon={
-                <Image
-                  src={item.icon}
-                  alt={`${item.text} Icon`}
-                  w="20px"
-                  h="20px"
-                  filter="grayscale(100%) brightness(100) invert(1)"
-                />
-              }
-              bg={item.isActive ? "#2E5C38" : "transparent"}
-              _hover={{ bg: "#2E5C38", color: "#ffffff" }}
-            >
-              <Text
-                fontSize="14px"
-                color={item.isActive ? "#ffffff" : "#5F5C5C"}
-              >
-                {item.text}
-              </Text>
-            </Button>
-          ))}
-
-          <Divider mt={2} />
-          <Text fontSize="xs" color="#424141" fontWeight="500" pt={2}>
-            SETTINGS
-          </Text>
-
-          <Button
-            variant="ghost"
-            w="full"
-            h="36px"
-            justifyContent="flex-start"
-            leftIcon={
-              <Image
-                src={Settings}
-                alt="Settings Icon"
-                w="20px"
-                h="20px"
-                filter="grayscale(100%) brightness(100) invert(1)"
-              />
-            }
-          >
-            <Text fontSize="14px" color="#5F5C5C">
-              Settings
-            </Text>
-          </Button>
-
-          <Button
-            variant="ghost"
-            w="full"
-            h="36px"
-            justifyContent="flex-start"
-            leftIcon={
-              <Image
-                src={Logout}
-                alt="Logout Icon"
-                w="20px"
-                h="20px"
-                filter="grayscale(100%) brightness(100) invert(1)"
-              />
-            }
-            mt="auto"
-          >
-            <Text fontSize="14px" color="#5F5C5C">
-              Logout
-            </Text>
-          </Button>
-        </VStack>
+        
 
         {/* Main Content */}
         <Box flex={1} p={4} overflow="auto">
