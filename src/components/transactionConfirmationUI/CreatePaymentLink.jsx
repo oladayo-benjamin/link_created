@@ -13,7 +13,7 @@ const CreatePaymentLink = () => (
             </Flex>
             <Divider borderColor="#DDDDDD" borderWidth="1px" position="absolute" bottom="0" />
 
-            <Flex justify="center" p={6} bg="gray.100" gap={10}> 
+            <Flex justify="center" p={6} bg="gray.100" gap={55}>
                 {/* Form Section */}
                 <Box w="525px" p={8} bg="white" borderRadius="lg" boxShadow="md" mt="40px">
                     <VStack spacing={6} align="stretch">
@@ -86,18 +86,32 @@ const CreatePaymentLink = () => (
                     justifyContent="center"
                     textAlign="center"
                     p={4}
-                    mt= "60px"
+                    mt="200px"
                 >
                     {/* Upload Icon */}
                     <FaCloudUploadAlt size={88} color="#CCCCCC" />
 
                     {/* Upload Instruction */}
-                    <Text color="#67B5FE" fontSize="16px" fontWeight="500" mt={4}>
+                    <Text w="288px"
+                        textAlign="center"
+                        color="#67B5FE"
+                        fontSize="16px"
+                        fontFamily="Inter"
+                        fontWeight="500"
+                        lineHeight="22.4px"
+                        wordBreak="break-word">
                         Drag your image from your computer here or click to upload
                     </Text>
 
                     {/* Additional Info */}
-                    <Text color="#505050" fontSize="12px" fontWeight="400" lineHeight="20px" mt={2} maxW="429px">
+                    <Text w="429px"
+                        textAlign="center"
+                        color="#505050"
+                        fontSize="12px"
+                        fontFamily="Inter"
+                        fontWeight="400"
+                        lineHeight="20px"
+                        wordBreak="break-word">
                         This image will be displayed on social platforms where the link is shared
                     </Text>
                 </Box>
