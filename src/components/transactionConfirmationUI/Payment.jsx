@@ -4,8 +4,6 @@ import {
   Flex,
   Text,
   Button,
-  Image,
-  Divider,
   VStack,
   IconButton,
   Input,
