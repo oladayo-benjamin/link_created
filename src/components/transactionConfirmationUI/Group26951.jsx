@@ -13,7 +13,7 @@ const items = [
 ];
 
 const Group26951 = () => (
-    <Box w="100vw" minH="120vh" bg="gray.100" color="gray.600" position="relative" overflowY="auto">
+    <Box w="100vw" minH="120vh" bg="#F8F8F8" color="gray.600" position="relative" overflowY="auto">
     <Stack minH="120vh" justify="center" align="center" mt="20px">
       
       {/* Checkbox Group 1 */}

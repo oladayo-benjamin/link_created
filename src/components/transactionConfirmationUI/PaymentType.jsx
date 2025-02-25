@@ -13,7 +13,7 @@ const items = [
 ];
 
 const PaymentType = () => (
-  <Box w="100vw" h="100vh" bg="gray.100" color="gray.600" position="relative">
+  <Box w="100vw" h="100vh" bg="#F8F8F8" color="gray.600" position="relative">
     <Stack>
       {/* Close Button */}
       <Box position="absolute" left="41.54px" top="20px">

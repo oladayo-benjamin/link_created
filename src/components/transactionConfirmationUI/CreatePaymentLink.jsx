@@ -3,7 +3,7 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { FaCloudUploadAlt } from "react-icons/fa";
 
 const CreatePaymentLink = () => (
-    <Box w="100vw" h="100vh" bg="gray.100" color="gray.600" position="relative" minH="120vh">
+    <Box w="100vw" bg="#F8F8F8" color="gray.600" position="relative" minH="120vh">
         <Box w="100%" h="63px" position="relative">
             <Flex align="center" h="100%" px={6}>
                 <IconButton icon={<ArrowBackIcon boxSize={6} />} aria-label="Back" variant="ghost" position="absolute" left={6} />
@@ -13,7 +13,7 @@ const CreatePaymentLink = () => (
             </Flex>
             <Divider borderColor="#DDDDDD" borderWidth="1px" position="absolute" bottom="0" />
 
-            <Flex justify="center" p={6} bg="gray.100" gap={55}>
+            <Flex justify="center" p={6} bg="#F8F8F8" gap={55}>
                 {/* Form Section */}
                 <Box w="525px" p={8} bg="white" borderRadius="lg" boxShadow="md" mt="40px">
                     <VStack spacing={6} align="stretch">
