@@ -8,17 +8,19 @@ import {
   HStack,
   Input,
   InputGroup,
+  Image,
+  useBreakpointValue,
 } from "@chakra-ui/react";
-import { Check, Copy} from "lucide-react";
+import { Check, Copy } from "lucide-react";
 
-import Email from "./paymentLinkAssets/email.png"
-import WhatsApp from "./paymentLinkAssets/whatsapp.png"
-import Chat from "./paymentLinkAssets/sms.png"
-import CheckIcon from "./paymentLinkAssets/check.png"
+import Email from "./paymentLinkAssets/email.png";
+import WhatsApp from "./paymentLinkAssets/whatsapp.png";
+import Chat from "./paymentLinkAssets/sms.png";
+import CheckIcon from "./paymentLinkAssets/check.png";
 
 const PaymentLinkPage = () => {
   const [copied, setCopied] = React.useState(false);
-    const paymentLink = "https://payment.link/xyz123";
+  const paymentLink = "https://payment.link/xyz123";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(paymentLink);
@@ -26,32 +28,31 @@ const PaymentLinkPage = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  return (
-    <Box w="100vw" h="100vh" bg="gray.50">
+  const paddingValue = useBreakpointValue({ base: 4, md: 8 }); // Adjust padding for mobile/tablet
 
-      {/* Main Content */}
-      <Flex justify="center" pt={20}>
+  return (
+    <Box w="100vw" minH="100vh" bg="gray.50">
+      <Flex justify="center" align="center" h="full" py={8}>
         <VStack
           bg="gray.100"
-          p={8}
+          p={paddingValue}
           borderRadius="md"
           spacing={6}
           align="center"
+          w={{ base: "90%", md: "400px" }}
           maxW="md"
-          w="full"
-          mx={4}
+          mx="auto"
         >
-                  {/* Success Icon */}
-            <img src={CheckIcon} alt="check" width="50px" />
-         
+          {/* Success Icon */}
+          <Image src={CheckIcon} alt="check" boxSize="50px" />
 
           {/* Success Message */}
-          <Text fontSize="md" fontWeight="500" color="gray.700">
+          <Text fontSize={{ base: "sm", md: "md" }} fontWeight="500" color="gray.700">
             Payment link generated!
           </Text>
 
           {/* Payment Link */}
-          <InputGroup size="md">
+          <InputGroup size="md" flexDirection={{ base: "column", md: "row" }} gap={{ base: 2, md: 0 }}>
             <Input
               pr="4.5rem"
               py="1.25rem"
@@ -60,22 +61,21 @@ const PaymentLinkPage = () => {
               bg="gray.100"
               borderColor="yellow.300"
               color="gray.700"
-              rounded={"0px"}
+              rounded="md"
+              w="full"
             />
             <Button
-              h="1.75rem"
-              size="sm"
+              h="2.5rem"
               onClick={handleCopy}
               leftIcon={copied ? <Check size={16} /> : <Copy size={16} />}
-              fontSize="xs"
+              fontSize="sm"
               bg="gray.100"
-              ml="10px"
               _hover={{ bg: "green.500", color: "white" }}
-              px="2.5rem"
-              py="1.25rem"
+              px="4"
               border="1px solid black"
-                          color="gray.700" 
-                          rounded={"0px"}
+              color="gray.700"
+              rounded="md"
+              w={{ base: "full", md: "auto" }}
             >
               {copied ? "Copied" : "Copy Link"}
             </Button>
@@ -86,29 +86,19 @@ const PaymentLinkPage = () => {
             <Text fontSize="sm" color="gray.600">
               Share this link via:
             </Text>
-            <HStack spacing={2} justify="center">
-              <img src={Email} alt="Email" width="20px" />
-              <img src={WhatsApp} alt="WhatsApp" width="20px" />
-              <img src={Chat} alt="chat" width="20px" />
+            <HStack spacing={4} justify="center">
+              <Image src={Email} alt="Email" boxSize="24px" />
+              <Image src={WhatsApp} alt="WhatsApp" boxSize="24px" />
+              <Image src={Chat} alt="Chat" boxSize="24px" />
             </HStack>
           </VStack>
 
           {/* Action Buttons */}
           <VStack spacing={2} w="full">
-            <Button
-              w="full"
-              bg="#2E5C38"
-              color="white"
-              _hover={{ bg: "#244a2d" }}
-            >
+            <Button w="full" bg="#2E5C38" color="white" _hover={{ bg: "#244a2d" }}>
               Back To Payment Links
             </Button>
-            <Button
-              w="full"
-              variant="outline"
-              color="gray.600"
-              borderColor="gray.300"
-            >
+            <Button w="full" variant="outline" color="gray.600" borderColor="gray.300">
               View QR Code
             </Button>
           </VStack>

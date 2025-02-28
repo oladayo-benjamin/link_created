@@ -13,10 +13,10 @@ const items = [
 ];
 
 const PaymentType = () => (
-  <Box w="100vw" h="100vh" bg="#F8F8F8" color="gray.600" position="relative">
+  <Box w="100vw" minH="100vh" bg="#F8F8F8" color="gray.600" position="relative" px={{ base: 4, md: 8 }}>
     <Stack>
       {/* Close Button */}
-      <Box position="absolute" left="41.54px" top="20px">
+      <Box position="absolute" left="16px" top="20px">
         <CloseButton size="lg" />
       </Box>
 
@@ -25,44 +25,79 @@ const PaymentType = () => (
         <Divider width="100%" position="absolute" top="55px" borderColor="#DDDDDD" borderWidth="1px" mt="20px" />
       </Box>
 
-
       {/* Payment Text */}
-      <Box mt="100px" textAlign="center">
-        <Text color="#333333" fontSize="32px" fontFamily="Inter" fontWeight="500">
+      <Box mt={{ base: "80px", md: "100px" }} textAlign="center">
+        <Text color="#333333" fontSize={{ base: "24px", md: "32px" }} fontFamily="Inter" fontWeight="500">
           Select a payment type to continue
         </Text>
       </Box>
 
       {/* Checkbox Group Centered */}
-          <CheckboxGroup defaultValue={["next"]}>
-            <Flex gap="4" flexWrap="wrap" justify="center" mt="30px">
-              {items.map((item) => (
-                <Box key={item.value} w="270px" h="319px" bg="white" border="1px solid #9BE69D" borderRadius="md" p={4}
-                  position="relative" display="flex" flexDirection="column" alignItems="center" justifyContent="flex-start" >
-                  {/* Checkbox at top-right */}
-                  <Box position="absolute" top="8px" right="8px">
-                    <CheckboxCard value={item.value} />
-                  </Box>
+      <CheckboxGroup defaultValue={["next"]}>
+        <Flex
+          gap={4}
+          flexWrap="wrap"
+          justify="center"
+          mt="30px"
+          flexDirection={{ base: "column", sm: "row" }}
+          alignItems="center"
+        >
+          {items.map((item) => (
+            <Box
+              key={item.value}
+              w={{ base: "90%", sm: "270px" }}
+              h="319px"
+              bg="white"
+              border="1px solid #9BE69D"
+              borderRadius="md"
+              p={4}
+              position="relative"
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="flex-start"
+            >
+              {/* Checkbox at top-right */}
+              <Box position="absolute" top="8px" right="8px">
+                <CheckboxCard value={item.value} />
+              </Box>
 
-                  {/* Card Content with Image */}
-                  <VStack spacing={3} mt={10} align="center">
-                    <Image src={item.imgSrc} alt={item.title} w="80px" h="80px" />
-                    <Text fontSize="20px" fontWeight="bold">{item.title}</Text>
-                    <Text fontSize="14px" color="gray.600" textAlign="center">{item.description}</Text>
-                  </VStack>
-                </Box>
-              ))}
-            </Flex>
-          </CheckboxGroup>
-        
-        <Flex justify="center" mt="40px"> {/* Centers the button horizontally */}
-          <Button width="282px" height="42px" px="30px" py="10px" bg="#2E5C38" borderRadius="8px" overflow="hidden"
-                   justifyContent="center" alignItems="center" display="flex" gap="10px"  color="white"  fontSize="18px"
-                  fontFamily="Inter"fontWeight="500" textTransform="capitalize" _hover={{ bg: "#25662C" }}  >
-            Proceed to generate link
-          </Button>
+              {/* Card Content with Image */}
+              <VStack spacing={3} mt={10} align="center">
+                <Image src={item.imgSrc} alt={item.title} w="80px" h="80px" />
+                <Text fontSize="20px" fontWeight="bold">{item.title}</Text>
+                <Text fontSize="14px" color="gray.600" textAlign="center">{item.description}</Text>
+              </VStack>
+            </Box>
+          ))}
         </Flex>
-      
+      </CheckboxGroup>
+
+      {/* Proceed Button */}
+      <Flex justify="center" mt="40px">
+        <Button
+          width="90%"
+          maxW="282px"
+          height="42px"
+          px="30px"
+          py="10px"
+          bg="#2E5C38"
+          borderRadius="8px"
+          overflow="hidden"
+          justifyContent="center"
+          alignItems="center"
+          display="flex"
+          gap="10px"
+          color="white"
+          fontSize="18px"
+          fontFamily="Inter"
+          fontWeight="500"
+          textTransform="capitalize"
+          _hover={{ bg: "#25662C" }}
+        >
+          Proceed to generate link
+        </Button>
+      </Flex>
     </Stack>
   </Box>
 );
